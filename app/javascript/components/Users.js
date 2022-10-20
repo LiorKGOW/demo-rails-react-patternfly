@@ -8,7 +8,9 @@ export const Users = () => {
     const getUser = async () => {
       try {
         const response = await axios.get('/user');
-        setUsers(response.data || []);
+        if(response.data){
+          setUsers(response.data);
+        }
       } catch (error) {
         console.error(error);
       }
